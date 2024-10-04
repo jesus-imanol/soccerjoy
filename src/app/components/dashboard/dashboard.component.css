@@ -1,0 +1,92 @@
+.dashboard {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #00695C;
+    flex-direction: row;
+}
+.hours-set {
+    width: 25%;
+    height: 100%;
+    background-color: #004D40;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+}
+.text h2,p {
+    color: #D6D6D6;
+    font-weight: bold;
+}
+.text h2 {
+    font-size: 36px;
+}
+.text {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+    
+}
+.text p{
+    font-size: 16px;
+}
+.image {
+    width: 100%;
+    height: 20%;
+}
+.template-functions {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    height: 100%;
+    background-color: #004D40;
+}
+.brand {
+    display: flex;
+    width: 100%;
+    height: 25%;
+    font-family: "Montserrat", sans-serif;
+}
+.brand-info {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}
+.brand-info h1 {
+    font-size: 96px;
+    font-weight: bolder;
+    color: #F7F7F7;
+}
+.logout {
+    width: 10%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+}
+.options {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+
+}
+.game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33%;
+    height: 100%;
+}
+.game p {
+    font-family: "Montserrat", sans-serif;
+    color: #F7F7F7;
+    font-size: 20px;
+}
+.whatever-option {
+    width: 100%;
+    height: 65%;
+}

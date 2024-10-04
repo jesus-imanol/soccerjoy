@@ -1,0 +1,55 @@
+<section class="dashboard">
+    <div class="hours-set">
+        <div class="text">
+            <h2>Hello {{ admin.name || "INVITADO" }}</h2>
+            <p>Asign teams here</p>
+        </div>
+        <div class="image">
+            <img src="./assets/shot_hours.svg" alt="">
+        </div>
+    </div>
+
+    <div class="template-functions">
+        <div class="brand">
+            <div class="brand-info">
+                <img src="./assets/brand_logo.svg" alt="I´m branch logo">
+                <h1>SOCCERJOY</h1>
+            </div>
+            <div class="logout">
+                <p (click)="logout()">Salir</p>
+            </div>
+        </div>
+
+        <div class="options">
+            <div class="game" (click)="selectOption('newTeam')">
+                <img src="./assets/dade.svg" alt="">
+                <p>NEW TEAM</p>
+            </div>
+            <div class="game" (click)="selectOption('assignGame')">
+                <img src="./assets/dade.svg" alt="">
+                <p>ASIGN GAME</p>
+            </div>
+            <div class="game" (click)="selectOption('playerStatistics')">
+                <img src="./assets/dade.svg" alt="">
+                <p>PLAYER STATISTICS</p>
+            </div>
+        </div>
+
+        <div class="whatever-option" *ngIf="selectedOption === 'newTeam'">
+            <app-assign-game-form ></app-assign-game-form>
+        </div>
+
+        <div *ngIf="selectedOption === 'assignGame'">
+            <!-- Aquí pones el contenido de "Assign Game" -->
+            <h2>Assign a Game</h2>
+            <!-- contenido o formulario para "Assign Game" -->
+        </div>
+
+        <div *ngIf="selectedOption === 'playerStatistics'">
+            <!-- Aquí pones el contenido de "Player Statistics" -->
+            <h2>Player Statistics</h2>
+            <!-- contenido o estadísticas de jugadores -->
+        </div>
+
+    </div>
+</section>

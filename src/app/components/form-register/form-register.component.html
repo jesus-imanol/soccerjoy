@@ -1,0 +1,32 @@
+<div class="register-form">
+    <div class="content-text">
+    <div class="text">
+        <h1>Create an account</h1>
+    </div>
+    <div class="text-down">
+        <p>Already your account as admin? </p> <p class="log">Log in</p>
+    </div>
+</div>
+<div class="form-content">
+    <form [formGroup]="myAdmin">
+        <div class="form-display">
+        <div class="two-inputs">
+            <input type="text" placeholder="Jesus" formControlName="name">
+            <input type="text" placeholder="Last name" formControlName="lastname">
+        </div>
+        <div class="more-inputs">
+            <input type="text" placeholder="Email" formControlName="email" >
+            <input type="text" placeholder="Enter your password" formControlName="password">
+        </div>
+        <div class="check">
+        <input type="checkbox" formControlName="check"><p>I agree to the terms & conditions</p>
+    </div>
+    <div class="buttons">
+        <button (click)="addAdmin()">Create account</button>
+        <button>Are you player? Press here!</button>    
+    </div>
+    </div>
+    </form>
+
+</div>
+</div>
