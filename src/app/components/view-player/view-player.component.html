@@ -1,0 +1,96 @@
+<section class="animated-section" [formGroup]="search">
+    <div class="entrance">
+        <div class="logo"><img src="./assets/brand_logo.svg" alt="">
+            <h4>Soccerjoy</h4> </div><div class="log"><h4 routerLink="/">Salir &rarr;</h4></div>
+    </div>
+    <div class="display-card">
+        <div class="display-left">
+            <div class="queryy">
+            <div class="card" >
+                <div class="card-header">
+                  <select class="dropdown">
+                    <option>Nombre</option>
+                  </select>
+                  <input class="query-input" type="text" placeholder="Search ..." formControlName="namePlayer" (keyup.enter) ="searchPlayer()">
+                </div>  
+              
+                <div class="card-body">
+                  <div class="query-content">
+                    <span>Discover by <strong>Soccerjoy</strong></span>
+                    <p>Dedicate to do futbol tourn</p>
+                  </div>
+                  <div class="arrow-link">
+                    <p (click)="searchPlayer()">Search player &rarr;</p>
+                  </div>
+                </div>
+              </div>
+</div>
+<div class="player">
+    <div *ngIf="playerInfo==null || playerInfo==undefined">
+        ...
+    </div>
+    
+        <div class="player-card" *ngIf="playerInfo">
+            <div class="player-card-header">
+                <h2>{{ playerInfo.player?.name }}</h2> 
+                <p>Juega con {{ playerInfo.team }}</p> 
+            </div>
+            <div class="player-card">
+                <div class="content-info">
+                    <div class="imagee">
+                        <img src="./assets/player.svg" alt="">
+                    </div>
+                    <div class="information">
+                        <div class="stadists">
+                            <p>Goles</p>
+                            <div class="sss">
+                                <img src="./assets/ball.svg" alt="">
+                                <p> {{playerInfo.player?.goals || 0}} gole(s)</p>
+                            </div>
+                           
+                        </div>
+                        <div class="stadists">
+                            <p>Sanciones</p>
+                            <div class="sss">
+                                <img src="./assets/sanction.svg" alt="">
+                                <p> {{playerInfo.player?.sanctions || 0}} sanciones</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stadists-2">
+                    <div class="stadists">
+                        <p>T. Rojas</p>
+                        <div class="sss">
+                            <img src="./assets/tarjet_red.svg" alt="">
+                            <p> {{playerInfo.player?.redCards || 0}} t.roja(s)</p>
+                        </div>
+                    </div>
+                    <div class="stadists">
+                        <p>T. amarillas</p>
+                        <div class="sss">
+                            <img src="./assets/tarjet_yellow.svg" alt="">
+                            <p> {{playerInfo.player?.yellowCards || 0}} t.amarilla(s)</p>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        
+</div>
+              
+        </div>
+        <div class="display-right">
+            <div class="box-hour">
+                <div class="text">
+                    <h3>Proximos partidos</h3>
+                </div>
+                <div class="player-hour">
+                <app-card-player-hour *ngFor="let item of associatedTeams" [associatedTeam]="item" ></app-card-player-hour >
+            </div>
+            </div>
+        </div>
+    </div>
+</section>

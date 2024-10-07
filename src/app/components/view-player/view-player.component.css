@@ -1,0 +1,224 @@
+.animated-section {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    font-family: 'Montserrat',sans-serif;
+    background-color: #e0e0e0;
+}
+.entrance {
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    height: 20%;
+    flex-direction: row;
+    font-size: 20px;
+}
+.logo {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.log {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.entrance img {
+    width: 80px;
+    height: 80px;
+}
+.display-card {
+    height: 80%;
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+}
+.display-left {
+    width: 40%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+}
+.queryy {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60%;
+}
+.display-right {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box-hour {
+    width: 80%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    background-color: #FCFBFB;
+    border-radius: 10px;
+    border: 2px solid #AEAEAE
+}
+.text {
+    width: 100%;
+    height: 5%;
+    padding: 2%;
+}
+.player-hour {
+    width: 100%;
+    height: 95%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+}
+h3 {
+    color: #000000;
+    font-size: 20px;
+}
+.card {
+    width: 80%;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #f9f4f4;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-family: 'Montserrat',sans-serif;
+  }
+  
+  .card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .dropdown {
+    width: 100px;
+    height: 30px;
+    border: 1px solid #C0C0C0;
+    border-radius: 8px;
+    padding: 0 10px;
+    color: #4A4A4A;
+    background-color: #F0F0F0;
+  }
+  
+  .query-input {
+    width: 160px;
+    height: 30px;
+    border: 1px solid #C0C0C0;
+    border-radius: 8px;
+    padding: 0 10px;
+    margin-left: 10px;
+    color: #4A4A4A;
+    background-color: #F0F0F0;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .query-content {
+    color: #4A4A4A;
+  }
+  
+  .query-content strong {
+    font-weight: 600;
+    color: #2A2A2A;
+  }
+  
+  .query-content p {
+    font-size: 14px;
+    color: #4A4A4A;
+  }
+  
+  .arrow-link {
+    font-weight: bold;
+    font-size: 14px;
+    color: #3B86FF;
+    cursor: pointer;
+  }
+  
+  .arrow-link p {
+    color: inherit;
+  }
+  .player-card-section {
+    display: flex;
+    width: 100%;
+    height: auto;
+    font-family: 'Montserrat', sans-serif;  
+}
+
+.player-card {
+    width: 70%;
+    padding: 1%;
+    background-color: #fff;
+    border: 1px solid #f9f4f4;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+.player-card-header {
+    margin-bottom: 15px;
+}
+.content-info {
+  display: flex;
+  width: 100%;
+  height: 20%;
+  flex-direction: row;
+}
+.imagee {
+    display: flex;
+    width: 50%;
+    height: 100%;
+}
+.information {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 80%;
+    flex-direction: column;
+}
+.stadists {
+    width: 100%;
+    height: 20%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.sss {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3%;
+}
+.stadists-2 {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+

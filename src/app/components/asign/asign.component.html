@@ -1,0 +1,37 @@
+<div class="asign">
+    <div class="text-in">
+      <h1>FUTBOL PARA TODOS</h1>
+    </div>
+  
+    <form class="tranfers-in" (submit)="$event.preventDefault()">
+      <div class="box-data">
+        <div class="box">
+          <select [(ngModel)]="selectedTeam1" name="team1">
+            <option value="">ASIGN TEAMS</option>
+            <option *ngFor="let team of teams" [value]="team.name">{{ team.name }}</option>
+          </select>
+        </div>
+        
+        <div class="box">
+          <img src="./assets/vs.svg" alt="VS">
+        </div>
+        
+        <div class="box">
+          <select [(ngModel)]="selectedTeam2" name="team2">
+            <option value="">ASIGN TEAMS</option>
+            <option *ngFor="let team of teams" [value]="team.name">{{ team.name }}</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="hour">
+        <h2>HORA:</h2>
+        <input #hourInput type="text" placeholder="00:00" />
+      </div>
+  
+      <div class="ok">
+        <button (click)="assignOpponents(hourInput.value)" type="submit">OK</button>
+      </div>
+    </form>
+  </div>
+    

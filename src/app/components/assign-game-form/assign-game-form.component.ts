@@ -1,47 +1,63 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
-import { TeamService } from '../../services/team.service';
-
+import { Component, OnInit } from '@angular/core';
+import { TeamService, Team, Player } from '../../services/team.service';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-assign-game-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './assign-game-form.component.html',
   styleUrls: ['./assign-game-form.component.css']
 })
-export class AssignGameFormComponent {
+export class AssignGameFormComponent implements OnInit {
+  teams: Team[] = [];
   game: FormGroup;
 
   constructor(private teamService: TeamService) {
     this.game = new FormGroup({
-      teamName: new FormControl('', Validators.required),
-      players: new FormArray([]),
+      nameGame: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      n1: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      n2: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      n3: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      n4: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      n5: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      n6: new FormControl('', [Validators.required, Validators.minLength(3)])
     });
-    this.initPlayers(6);
   }
-  initPlayers(count: number) {
-    for (let i = 0; i < count; i++) {
-      this.addPlayer();
+
+  ngOnInit(): void {
+    this.teams = this.teamService.getTeams();
+  }
+
+  addGame(): boolean {
+    if (this.game.invalid) {
+      this.game.markAllAsTouched();
+      return false;
     }
-  }
 
-  addPlayer() {
-    if (this.players.length < 6) {
-      this.teamService.addPlayer(this.game);
-    } else {
-      alert('No puedes agregar más de 6 jugadores');
+    const players = [
+      this.game.value.n1, 
+      this.game.value.n2, 
+      this.game.value.n3,
+      this.game.value.n4, 
+      this.game.value.n5, 
+      this.game.value.n6
+    ];
+
+    if (this.teamService.addTeam(this.game.value.nameGame, players)) {
+      Swal.fire({
+        title: "Good job!",
+        text: "TEAM ADDED SUCCESS",
+        icon: "success"
+      });
+      return true;
     }
-  }
 
-  removePlayer(index: number) {
-    this.teamService.removePlayer(this.game, index);
+    return false;
   }
-
-  get players() {
-    return this.teamService.getPlayers(this.game);
-  }
-
-  onSubmit() {
-    this.teamService.saveTeam(this.game);
-  }
+  isFieldInvalid(fieldName: string): boolean {
+    const control = this.game.get(fieldName);
+    return !!control && control.invalid && (control.touched || control.dirty);
+  }  
 }

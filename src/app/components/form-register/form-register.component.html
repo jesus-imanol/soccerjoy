@@ -1,32 +1,55 @@
 <div class="register-form">
     <div class="content-text">
-    <div class="text">
-        <h1>Create an account</h1>
-    </div>
-    <div class="text-down">
-        <p>Already your account as admin? </p> <p class="log">Log in</p>
-    </div>
-</div>
-<div class="form-content">
-    <form [formGroup]="myAdmin">
-        <div class="form-display">
-        <div class="two-inputs">
-            <input type="text" placeholder="Jesus" formControlName="name">
-            <input type="text" placeholder="Last name" formControlName="lastname">
+        <div class="text">
+            <h1>Crear una cuenta</h1>
         </div>
-        <div class="more-inputs">
-            <input type="text" placeholder="Email" formControlName="email" >
-            <input type="text" placeholder="Enter your password" formControlName="password">
+        <div class="text-down">
+            <p>¿Ya tienes una cuenta de administrador? </p> <p class="log">Iniciar sesión</p>
         </div>
-        <div class="check">
-        <input type="checkbox" formControlName="check"><p>I agree to the terms & conditions</p>
     </div>
-    <div class="buttons">
-        <button (click)="addAdmin()">Create account</button>
-        <button>Are you player? Press here!</button>    
-    </div>
-    </div>
-    </form>
-
-</div>
+        <div [formGroup]="myAdmin" class="form-content">
+            <div class="form-display">
+                <div class="two-inputs">
+                        <div class="break">
+                    <input type="text" placeholder="Nombre" formControlName="name">
+                    <div *ngIf="myAdmin.get('name')?.invalid && (myAdmin.get('name')?.dirty || myAdmin.get('name')?.touched)">
+                        <p *ngIf="myAdmin.get('name')?.errors?.['required']" class="error">El nombre es obligatorio</p>
+                        <p *ngIf="myAdmin.get('name')?.errors?.['minlength']" class="error">El nombre debe tener al menos 3 caracteres</p>
+                    </div>
+                        </div>
+                        <div class="break">
+                    <input type="text" placeholder="Apellido" formControlName="lastname">
+                    <div *ngIf="myAdmin.get('lastname')?.invalid && (myAdmin.get('lastname')?.dirty || myAdmin.get('lastname')?.touched)">
+                        <p *ngIf="myAdmin.get('lastname')?.errors?.['required']" class="error">El apellido es obligatorio</p>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="more-inputs">
+                    <input type="text" placeholder="Correo electrónico" formControlName="email">
+                    <div *ngIf="myAdmin.get('email')?.invalid && (myAdmin.get('email')?.dirty || myAdmin.get('email')?.touched)">
+                        <p *ngIf="myAdmin.get('email')?.errors?.['email']" class="error">Introduce una dirección de correo válida</p>
+                    </div>
+                    
+                    <input type="password" placeholder="Introduce tu contraseña" formControlName="password">
+                    <div *ngIf="myAdmin.get('password')?.invalid && (myAdmin.get('password')?.dirty || myAdmin.get('password')?.touched)">
+                        <p *ngIf="myAdmin.get('password')?.errors?.['minlength']" class="error">La contraseña debe tener al menos 8 caracteres</p>
+                    </div>
+                </div>
+                
+                <div class="check">
+                    <input type="checkbox" formControlName="check">
+                    <p>Acepto los términos y condiciones</p>
+                    <div *ngIf="myAdmin.get('check')?.invalid && (myAdmin.get('check')?.dirty || myAdmin.get('check')?.touched)">
+                        <p *ngIf="myAdmin.get('check')?.errors?.['required']" class="error">Debes aceptar los términos y condiciones</p>
+                    </div>
+                </div>
+                
+                <div class="buttons">
+                    <button type="submit"(click)="addAdmin()" [disabled]="myAdmin.invalid">Crear cuenta</button>
+                    <button routerLink="/player">¿Eres jugador? ¡Presiona aquí!</button>
+                </div>
+            </div>
+        </div>
+    
 </div>

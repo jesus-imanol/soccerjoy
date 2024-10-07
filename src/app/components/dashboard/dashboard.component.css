@@ -14,9 +14,31 @@
     flex-direction: column;
     font-family: "Montserrat", sans-serif;
 }
+.cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60%;
+    flex-direction: column;
+    gap: 2%;
+    overflow: auto;
+    
+}
 .text h2,p {
     color: #D6D6D6;
     font-weight: bold;
+}
+.card-hour {
+    display: flex;
+    flex-direction:column;
+    gap: 1%;
+    width: 80%;
+    height: 30%;
+    background-color: #EAEAEA;
+    border-radius: 10px;
+    font-family: "Anton", sans-serif;
+    color: #696969;
 }
 .text h2 {
     font-size: 36px;
@@ -67,6 +89,9 @@
     justify-content: flex-end;
     height: 100%;
 }
+.logout p {
+    cursor: pointer;
+}
 .options {
     width: 100%;
     height: 10%;
@@ -80,6 +105,8 @@
     justify-content: center;
     width: 33%;
     height: 100%;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 2px #F7F7F7;
 }
 .game p {
     font-family: "Montserrat", sans-serif;

@@ -1,0 +1,15 @@
+<div class="players">
+  <div class="text">
+    <h2>CHOOSE GAME FOR ASSIGN STATISTICS FOR SEASON (PLAYERS)</h2>
+    <select [(ngModel)]="selectedTeamName" (ngModelChange)="updateSelectedTeam()">
+      <option value="">NAME OF TEAM</option>
+      <option *ngFor="let team of teams" [value]="team.name">{{ team.name }}</option>
+    </select>
+  </div>
+
+  <div *ngIf="selectedTeam" class="box-cards">
+    <div class="player-list">
+      <app-card-player (messageEvent)="receivePlayer($event)" *ngFor="let player of selectedTeam.players" [player]="player" ></app-card-player>
+    </div>  
+  </div>
+</div>

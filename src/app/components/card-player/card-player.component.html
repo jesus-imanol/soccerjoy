@@ -1,0 +1,33 @@
+
+    <div class="card-player" [formGroup]="playerr">
+      <div class="card-header">
+        <h1>{{ player.name }}</h1>
+        <div class="card-images">
+          <img *ngIf="player.yellowCards > 0" src="./assets/tarjet_yellow.svg" alt="">
+          <img *ngIf="player.redCards > 0" src="./assets/tarjet_red.svg" alt="">
+      <img class="ball" *ngIf="player.goals > 0" src="./assets/ball.svg" alt="balon aparece">
+      <img class="ball" *ngIf="player.sanctions > 0" src="./assets/sanction.svg" alt=" sancio aparece">
+        </div>
+      </div>
+      <div class="card-stats">
+        <ul>
+          <li>
+          <span>Goles:</span>
+            <input id="goals" type="number" [(ngModel)]="player.goals" placeholder="Goles" title="Modificar Goles" formControlName="goal">
+          </li>
+          <li>
+            <span>Sanciones:</span>
+            <input id="sanctions" type="number" [(ngModel)]="player.sanctions" placeholder="Sanciones" title="Modificar Sanciones" formControlName="sanction">
+          </li>
+          <li>
+            <span>Tarjetas Amarillas:</span>
+            <input id="yellowCards" type="number" [(ngModel)]="player.yellowCards" placeholder="Amarillas" title="Modificar Tarjetas Amarillas" formControlName="yellowCard">
+          </li>
+          <li>
+            <span>Tarjetas Rojas:</span>
+            <input id="redCards" type="number" [(ngModel)]="player.redCards" placeholder="Rojas" title="Modificar Tarjetas Rojas" formControlName="redCard">
+          </li>
+        </ul>
+      </div>
+            <button (click)="updatePlayer()">Guardar</button>
+    </div>

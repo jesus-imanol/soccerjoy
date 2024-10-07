@@ -3,10 +3,13 @@
         <div class="text">
             <h2>Hello {{ admin.name || "INVITADO" }}</h2>
             <p>Asign teams here</p>
-        </div>
-        <div class="image">
+            </div>
+            <div class="image">
             <img src="./assets/shot_hours.svg" alt="">
-        </div>
+            </div>
+            <div class="cards">
+            <app-card-hour (messageEvent)="removeTeam($event)" class="card-hour" *ngFor="let item of associatedTeams" [teams]="item"></app-card-hour>
+            </div>
     </div>
 
     <div class="template-functions">
@@ -16,6 +19,7 @@
                 <h1>SOCCERJOY</h1>
             </div>
             <div class="logout">
+                <p (click)="finish()">Terminar torneo</p>
                 <p (click)="logout()">Salir</p>
             </div>
         </div>
@@ -39,16 +43,12 @@
             <app-assign-game-form ></app-assign-game-form>
         </div>
 
-        <div *ngIf="selectedOption === 'assignGame'">
-            <!-- Aquí pones el contenido de "Assign Game" -->
-            <h2>Assign a Game</h2>
-            <!-- contenido o formulario para "Assign Game" -->
+        <div class="whatever-option" *ngIf="selectedOption === 'assignGame'">
+          <app-asign></app-asign>
         </div>
 
-        <div *ngIf="selectedOption === 'playerStatistics'">
-            <!-- Aquí pones el contenido de "Player Statistics" -->
-            <h2>Player Statistics</h2>
-            <!-- contenido o estadísticas de jugadores -->
+        <div class="whatever-option" *ngIf="selectedOption === 'playerStatistics'">
+           <app-players></app-players>
         </div>
 
     </div>

@@ -1,28 +1,66 @@
 <div class="assign-game-form">
-    <form [formGroup]="game">
-      <div class="name-game">
-        <img src="./assets/elmaradona.svg" alt="I´m photo maradona">
-        <input type="text" formGroupName="nameGame">
-      </div>
-      <div class="display-in">
+  <form [formGroup]="game">
+    <div class="name-game">
+      <img src="./assets/elmaradona.svg" alt="I´m photo maradona">
+      <input type="text" formControlName="nameGame" placeholder="Game Name">
+      <p *ngIf="isFieldInvalid('nameGame')" class="error">El nombre del juego debe tener al menos 3 caracteres</p>
+    </div>
+
+    <div class="display-in">
       <div class="players1">
-          <div class="players1-in"><img src="./assets/com.svg" alt="">
-            <input type="text" placeholder="NAME"></div>
-          <div class="players1-in"><img src="./assets/com.svg" alt="">
-            <input type="text" placeholder="NAME"></div>
+        <div class="players1-in">
+        <div class="break">
+          <img src="./assets/com.svg" alt="">
+          <input type="text" formControlName="n1" placeholder="NAME PLAYER">
+        </div>
+          <p *ngIf="isFieldInvalid('n1')" class="error">El nombre debe tener al menos 3 caracteres</p>
+        </div>
+        <div class="players1-in">
+          <div class="break">
+          <img src="./assets/com.svg" alt="">
+          <input type="text" formControlName="n2" placeholder="NAME PLAYER">
+         </div>
+          <p *ngIf="isFieldInvalid('n2')" class="error">El nombre debe tener al menos 3 caracteres</p>
+        </div>
       </div>
+
       <div class="players1">
-        <div class="players1-in"><img src="./assets/com.svg" alt="">
-          <input type="text" placeholder="NAME"></div>
-        <div class="players1-in"><img src="./assets/com.svg" alt="">
-          <input type="text" placeholder="NAME"></div>
+        <div class="players1-in">
+          <div class="break">
+          <img src="./assets/com.svg" alt="">
+          <input type="text" formControlName="n3" placeholder="NAME PLAYER">
+        </div>
+          <p *ngIf="isFieldInvalid('n3')" class="error">El nombre debe tener al menos 3 caracteres</p>
+        </div>
+        <div class="players1-in">
+          <div class="break">
+          <img src="./assets/com.svg" alt="">
+          <input type="text" formControlName="n4" placeholder="NAME PLAYER">
+        </div>
+          <p *ngIf="isFieldInvalid('n4')" class="error">El nombre debe tener al menos 3 caracteres</p>
+        </div>
       </div>
+
       <div class="players1">
-        <div class="players1-in"><img src="./assets/com.svg" alt="">
-          <input type="text" placeholder="NAME"></div>
-          <div class="players1-in"><img src="./assets/com.svg" alt="">
-            <input type="text" placeholder="NAME"></div>
+        <div class="players1-in">
+          <div class="break">
+          <img src="./assets/com.svg" alt="">
+          <input type="text" formControlName="n5" placeholder="NAME PLAYER">
+        </div>
+          <p *ngIf="isFieldInvalid('n5')" class="error">El nombre debe tener al menos 3 caracteres</p>
+        </div>
+        <div class="players1-in">
+          <div class="break">
+          <img src="./assets/com.svg" alt="">
+          <input type="text" formControlName="n6" placeholder="NAME PLAYER">
+        </div>
+          <p *ngIf="isFieldInvalid('n6')" class="error">El nombre debe tener al menos 3 caracteres</p>
+        </div>
+      </div>
+
+      <div class="btn">
+        <button [disabled]="game.invalid" (click)="addGame()">OK</button>
       </div>
     </div>
-    </form>
+  </form>
 </div>
